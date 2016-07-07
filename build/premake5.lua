@@ -15,6 +15,7 @@ end
 
 function gmake_common()
     buildoptions "-march=native -Wall -Wextra"
+    linkoptions { "-static -static-libgcc -static-libstdc++" }
     links { "boost_system" }
 
     -- On some boost distributions, the naming contains -mt suffixes
@@ -138,7 +139,7 @@ solution "benchmark"
 		links "jsonclibs"
 
 		configuration "gmake"
-			buildoptions "-std=c++14"
+			buildoptions "-std=c++11"
 
 solution "jsonstat"
     configurations { "release" }
@@ -221,5 +222,5 @@ solution "jsonstat"
             setTargetObjDir("../bin/jsonstat")
 
 			configuration "gmake"
-				buildoptions "-std=c++14"
+				buildoptions "-std=c++11"
     end
